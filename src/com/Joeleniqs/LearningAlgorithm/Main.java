@@ -10,8 +10,8 @@ public class Main {
         // write your code here
        //PermutateString.permutate("joe");
         //new PQueue().example(new int[]{1,2,3,4,5 ,6 ,7,8,9,1,2,3,4});
-        System.out.println((int)']');
-        var c = "abc".toCharArray();
+        System.out.println(new RansomNote().canConstruct("aa","ab"));
+        //var c = "abc".toCharArray();
 
         //FirstUnique use = new FirstUnique(new int[]{7,7,7,7,7,7});
 //        System.out.println(use.showFirstUnique());
