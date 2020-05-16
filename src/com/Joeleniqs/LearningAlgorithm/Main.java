@@ -1,8 +1,9 @@
 package com.Joeleniqs.LearningAlgorithm;
 
-import org.w3c.dom.Node;
+import com.sun.source.tree.TypeCastTree;
 
-import java.util.LinkedList;
+import java.lang.reflect.Type;
+import java.util.*;
 
 public class Main {
 
@@ -10,7 +11,25 @@ public class Main {
         // write your code here
        //PermutateString.permutate("joe");
         //new PQueue().example(new int[]{1,2,3,4,5 ,6 ,7,8,9,1,2,3,4});
-        System.out.println(new RansomNote().canConstruct("aa","ab"));
+
+        LinkedList<Character> ls = new LinkedList<>();
+        TreeMap<Integer,Character> tm = new TreeMap<>((a,b)->a-b);
+        HashSet<Integer> hs = new HashSet<>();
+        Deque<Integer> dq = new ArrayDeque<>();
+        Object c= 1;
+        Stack<Integer> st = new Stack<>();
+
+        //System.out.println(Integer.parseInt(c.toString()));
+        //new RotateImage().rotate(new int[][]{{1,2,3},{4,5,6},{7,8,9}});
+        //System.out.println(new HourlyTime().maxSubarraySumCircular(new int[]{8,-1,-3,8,-6,-9,2,4}));
+        System.out.println(new OddEvenLinkedList().oddEvenList(new ListNode(1,new ListNode(2,new ListNode(3,new ListNode(4,new ListNode(5)))))));
+        //System.out.println(new floodFill().floodFill(new int[][]{{1,1,1}},0,1,2));
+        //PriorityQueue<Integer> pq = new PriorityQueue<Integer>((a, b)->b-a);
+        //System.out.println(new addTwoNumbers().addTwoNumber(new ListNode(2,new ListNode(4,new ListNode(3))),new ListNode(5,new ListNode(6,new ListNode(4)))));
+        //new SolutionBFS().isCousins(new Node(1, new Node(2,null,new Node(4)),new Node(3,null,new Node(5))),4,5);
+
+        //System.out.println(new SolutionStraight().checkStraightLine(new int[][]{{-4,-3},{1,0},{3,-1},{0,-1},{-5,2}}));
+
         //var c = "abc".toCharArray();
 
         //FirstUnique use = new FirstUnique(new int[]{7,7,7,7,7,7});
@@ -58,8 +77,6 @@ public class Main {
         System.out.println(adjacentList);
         return sum;
     }
-
-
 
 
 

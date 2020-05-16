@@ -5,50 +5,51 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 class FirstUnique {
-    HashMap<Integer,Integer> hm = new HashMap<>();
-    HashMap<Integer,Integer> values = new HashMap<>();
-    HashMap<Integer,Integer> indexValues = new HashMap<>();
-    int [] myNums;
+    HashMap<Integer, Integer> hm = new HashMap<>();
+    HashMap<Integer, Integer> values = new HashMap<>();
+    HashMap<Integer, Integer> indexValues = new HashMap<>();
+    int[] myNums;
+
+    public FirstUnique(){};
     public FirstUnique(int[] nums) {
         myNums = nums;
-        FirstUnique(nums,false ,0);
+        FirstUnique(nums, false, 0);
     }
-public void FirstUnique(int [] nums,boolean add ,int addValue){
-        if(add){
-            if(values.containsKey(addValue)){
+
+    public void FirstUnique(int[] nums, boolean add, int addValue) {
+        if (add) {
+            if (values.containsKey(addValue)) {
                 var existingOneCount = hm.get(addValue);
-                if(existingOneCount < 2) {
-                    hm.put(addValue, existingOneCount+1);
+                if (existingOneCount < 2) {
+                    hm.put(addValue, existingOneCount + 1);
                 }
+            } else {
+                hm.put(addValue, 1);
+                values.put(addValue, (myNums.length) + 1);
+                indexValues.put(myNums.length + 1, addValue);
             }
-            else {
-                hm.put(addValue,1);
-                values.put(addValue,(myNums.length) +1);
-                indexValues.put(myNums.length+1,addValue);
-            }
-        }else {
+        } else {
             for (int i = 0; i < nums.length; i++) {
                 ComputeHashMaps(nums, i);
             }
         }
-}
+    }
 
     private void ComputeHashMaps(int[] nums, int i) {
-        if(values.containsKey(nums[i])){
+        if (values.containsKey(nums[i])) {
             var existingOneCount = hm.get(nums[i]);
-            if(existingOneCount < 2)
-                hm.put(nums[i],existingOneCount+1);
-        }
-        else {
-            hm.put(nums[i],1);
-            values.put(nums[i],i);
-            indexValues.put(i,nums[i]);
+            if (existingOneCount < 2)
+                hm.put(nums[i], existingOneCount + 1);
+        } else {
+            hm.put(nums[i], 1);
+            values.put(nums[i], i);
+            indexValues.put(i, nums[i]);
         }
     }
 
     public int showFirstUnique() {
-        for(var entry : hm.entrySet()){
-            if(entry.getValue() == 1){
+        for (var entry : hm.entrySet()) {
+            if (entry.getValue() == 1) {
                 return entry.getKey();
             }
         }
@@ -56,13 +57,22 @@ public void FirstUnique(int [] nums,boolean add ,int addValue){
     }
 
     public void add(int value) {
-        FirstUnique(myNums,true,value);
+        FirstUnique(myNums, true, value);
+    }
+
+    public int firstUniqChar(String s) {
+        int res = Integer.MAX_VALUE;
+        for(char c = 'a'; c <= 'z'; c++){
+            var index = s.indexOf(c);
+            if(index!=-1 &&index == s.lastIndexOf(c)) return Math.min(index,res);
+        }
+        return -1;
     }
 }
 
 
 //check node at 0;
 //check (left & rigt)
- //left(only) increase i; left.check(left,right) of left
- //right(only) increase i; right.check(left,right)
- //left&right increase i ; left.check ; right.check
+//left(only) increase i; left.check(left,right) of left
+//right(only) increase i; right.check(left,right)
+//left&right increase i ; left.check ; right.check
